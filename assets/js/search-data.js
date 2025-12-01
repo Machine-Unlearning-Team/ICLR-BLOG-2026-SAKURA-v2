@@ -83,6 +83,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/wait-do-we-need-to-wait/";
           
         },
+      },{id: "post-what-and-what-not-are-calibrated-uncertainties-actually-useful-for",
+        
+          title: "What (and What Not) are Calibrated Uncertainties Actually Useful for?",
+        
+        description: "The blogpost clarifies the usefulness of having a model with calibrated probabilities, something that is not often stated in the calibration literature. I shows that a calibrated model can be relied on to estimate average loss/reward, however, good calibration does not mean that a model is useful for per-sample decision making.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/useful-calibrated-uncertainties/";
+          
+        },
       },{id: "post-tracing-the-principles-behind-modern-diffusion-models",
         
           title: "Tracing the Principles Behind Modern Diffusion Models",
@@ -325,6 +336,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/diffusion-inverse-problems/";
           
         },
+      },{id: "post-from-u-nets-to-dits-the-architectural-evolution-of-text-to-image-diffusion-models-2021-2025",
+        
+          title: "From U-Nets to DiTs: The Architectural Evolution of Text-to-Image Diffusion Models (2021–2025)",
+        
+        description: "A comprehensive analysis of how diffusion model architectures evolved from U-Net backbones to Diffusion Transformers, transforming text-to-image generation capabilities.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/diffusion-architecture-evolution/";
+          
+        },
       },{id: "post-defining-and-quantifying-compositional-structure",
         
           title: "Defining and quantifying compositional structure",
@@ -356,6 +378,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/budget-alignment/";
+          
+        },
+      },{id: "post-beyond-the-rerun-why-reproducibility-is-failing-science",
+        
+          title: "Beyond the Rerun: Why Reproducibility is Failing Science",
+        
+        description: "Is reproducibility enough? We discuss the current reproducibility crisis and the limitations that focusing solely on this aspect of scientific project quality imposes on science. We propose a broader approach to the problem of scientific debt and outline practical actions researchers can take in their research. We also draw attention to the need for community action on the issue.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/beyond-the-rerun/";
           
         },
       },{id: "post-",

@@ -32,7 +32,7 @@ toc:
   - name: "The Ultimate Compression: From Neural Networks to Physical Laws"
 ---
 
-Note: please use the table of contents as defined in the front matter rather than the traditional markdown styling.
+<!-- Note: please use the table of contents as defined in the front matter rather than the traditional markdown styling. -->
 
 ## Defining the Simulator: World Models
 
@@ -40,12 +40,12 @@ Note: please use the table of contents as defined in the front matter rather tha
   <strong>Takeaway:</strong> World Models are not just predictors; they are internal simulators of the environment's dynamics. Unlike static recognition, they learn the causal structure of the world to predict future states from current observations and actions.
 </div>
 
-<!-- 
-TODO: Intro to world model definition (Ha & Schmidhuber, JEPA).
-- Discuss the shift from "what is this?" (classification) to "what happens next?" (prediction/simulation).
-- The role of the "World Model" module in Model-Based RL.
--->
-[Content to be added]
+The concept of world models has garnered significant attention recently. One of notable definition of world models stated in  <d-cite key="dingUnderstandingWorldPredicting2025"></d-cite> emphasize two primary functions: (1) constructing internal representations to understand the mechanisms of the world, and (2) predicting future states to simulate and guide decision-making.
+
+{% raw %}{% include figure.liquid path="assets/img/2026-04-27-remote-sensing-foundation-models-to-world-models/world_models_timeline.png" class="img-fluid" %}{% endraw %}
+<div class="caption">
+    The timeline of world models defined in <d-cite key="dingUnderstandingWorldPredicting2025"></d-cite>.
+</div>
 
 ## Capturing the State: Remote Sensing Foundation Models
 

@@ -5,12 +5,7 @@ description: This blog post explores the pathway from remote sensing foundation 
 date: 2026-04-27
 future: true
 htmlwidgets: true
-hidden: true
 
-# Mermaid diagrams
-mermaid:
-  enabled: true
-  zoomable: true
 
 # Anonymize when submitting
 authors:
@@ -19,10 +14,6 @@ authors:
 # must be the exact same name as your blogpost
 bibliography: 2026-04-27-remote-sensing-foundation-models-to-world-models.bib
 
-# Add a table of contents to your post.
-#   - make sure that TOC names match the actual section names
-#     for hyperlinks within the post to work correctly.
-#   - please use this format rather than manually creating a markdown table of contents.
 toc:
   - name: "Defining the Simulator: World Models"
   - name: "Capturing the State: Remote Sensing Foundation Models"
@@ -32,7 +23,6 @@ toc:
   - name: "The Ultimate Compression: From Neural Networks to Physical Laws"
 ---
 
-<!-- Note: please use the table of contents as defined in the front matter rather than the traditional markdown styling. -->
 
 ## Defining the Simulator: World Models
 

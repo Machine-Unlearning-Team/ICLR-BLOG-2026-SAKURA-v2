@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: From Remote Sensing Foundation Models to World Models: A pathway in the perspective of Generative Modeling
-description: This blog post explores the pathway from remote sensing foundation models to world models through the lens of Generative Modeling, arguing that true understanding of the physical world comes from the ability to recreate it.
+title: "From Remote Sensing Foundation Models to World Models: A pathway in the perspective of Generative Modeling"
+description: "This blog post explores the pathway from remote sensing foundation models to world models through the lens of Generative Modeling, arguing that true understanding of the physical world comes from the ability to recreate it."
 date: 2026-04-27
 future: true
 htmlwidgets: true

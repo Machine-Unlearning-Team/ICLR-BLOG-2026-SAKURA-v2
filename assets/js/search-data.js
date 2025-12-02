@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "https://iclr-blog-track.github.io/home/";
               },
-            },{id: "post-wait-do-we-need-to-wait-revisiting-budget-forcing-for-sequential-test-time-scaling",
+            },{id: "post-fans-frequency-adaptive-noise-shaping-for-diffusion-models",
+        
+          title: "FANS - Frequency-Adaptive Noise Shaping for Diffusion Models",
+        
+        description: "Diffusion models have achieved remarkable success in generative modeling, yet they often struggle with spectral bias,the tendency to prioritize low-frequency patterns while inadequately learning high-frequency details. This limitation stems from the uniform noise scheduling employed during training, which allocates equal denoising capacity across all frequencies regardless of the dataset&#39;s spectral characteristics. We introduce Frequency-Adaptive Noise Shaping (FANS), a principled framework that addresses this fundamental limitation by dynamically shaping noise distributions according to dataset-specific frequency importance. FANS operates on a simple insight - different datasets exhibit distinct spectral signatures, and noise scheduling should reflect these differences. The framework integrates seamlessly with existing diffusion architectures through a simple modification to the noise sampling procedure during training and inference.We validate FANS on synthetic datasets with controlled spectral properties as well as real world data (CIFAR10, CelebA, Texture, MultimodalUniverse) where we demonstrate consistent improvements over vanilla DDPM baselines. Our experiments reveal that FANS particularly excels on high-frequency-rich datasets, producing sharper, more detailed samples while maintaining comparable performance for standard natural image datasets like CIFAR10 and CelebA.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/fans/";
+          
+        },
+      },{id: "post-wait-do-we-need-to-wait-revisiting-budget-forcing-for-sequential-test-time-scaling",
         
           title: "Wait, Do We Need to Wait? Revisiting Budget Forcing for Sequential Test-Time Scaling...",
         
@@ -81,6 +92,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/wait-do-we-need-to-wait/";
+          
+        },
+      },{id: "post-using-large-language-models-to-simulate-and-predict-human-decision-making",
+        
+          title: "Using Large Language Models to Simulate and Predict Human Decision-Making",
+        
+        description: "We explore how large language models can be used to predict human decisions in language-based persuasion games, comparing direct prompting, LLM-based data generation, and hybrid methods that mix synthetic and human data.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/using-large-language-models-to-simulate-and-predict-human-decision-making/";
           
         },
       },{id: "post-what-and-what-not-are-calibrated-uncertainties-actually-useful-for",
@@ -92,6 +114,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/useful-calibrated-uncertainties/";
+          
+        },
+      },{id: "post-is-your-algorithm-unlearning-or-untraining",
+        
+          title: "Is your algorithm Unlearning or Untraining?",
+        
+        description: "Machine unlearning aims to post-process a trained model in order to remove the influence of specific training examples or higher-level knowledge. We argue that the term unlearning is overloaded, with different use cases belonging to distinct problem formulations. This issue causes confusion in the community: it is often unclear what the goals of different proposed methods are, when they are expected to work, how they should be evaluated, and what baselines they should be compared against. To address this, we establish a fundamental distinction between two notions that we identify as Unlearning and Untraining, aiming to guide the field towards disambiguating technical definitions, to unlock more progress in clarifying goals, designing evaluation metrics for each, and ultimately better algorithms.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/unlearning-or-untraining/";
           
         },
       },{id: "post-tracing-the-principles-behind-modern-diffusion-models",
@@ -125,17 +158,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/speeding-up-rl/";
-          
-        },
-      },{id: "post-getting-sac-to-work-on-a-massive-parallel-simulator-an-rl-journey-with-off-policy-algorithms",
-        
-          title: "Getting SAC to Work on a Massive Parallel Simulator: An RL Journey With...",
-        
-        description: "This post details how to get the Soft-Actor Critic (SAC) and other off-policy reinforcement learning algorithms to work on massively parallel simulators (e.g., Isaac Sim with thousands of robots simulated in parallel). In addition to tuning SAC for speed, the post also explores why SAC fails where PPO succeeds, highlighting a common problem in task design that many codebases share.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/sac-massive-sim/";
           
         },
       },{id: "post-pushing-meta-continual-learning-algorithms-to-the-limit",
@@ -204,17 +226,6 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/measuregen/";
           
         },
-      },{id: "post-research-directions-in-multimodal-chain-of-thought-mcot-with-sketching",
-        
-          title: "Research Directions in Multimodal Chain-of-Thought (MCoT) with Sketching",
-        
-        description: "This article explores adding sketching to Multimodal Chain-of-Thought (MCoT)reasoning to enhance AI capabilities. It reviews past methods, identifies key gaps such as the lack of sketch-rationale datasets, and proposes advancing the field through targeted data collection, unified multimodal models, and reinforcement learning. Ethical considerations include mitigating cultural bias and visual misrepresentation in generated sketches.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/mcot-sketching/";
-          
-        },
       },{id: "post-from-reinforce-to-dr-grpo-a-unified-perspective-on-llm-post-training",
         
           title: "From REINFORCE to Dr. GRPO: A Unified Perspective on LLM Post-Training",
@@ -257,6 +268,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/introduction-to-stochastic-interpolants/";
+          
+        },
+      },{id: "post-generative-ai-archaeology",
+        
+          title: "Generative AI Archaeology",
+        
+        description: "We document the rise of the Generative AI Archaeologist, whose tools include linear algebra and probability theory, jailbreaking, and debuggers, compared to the metal detectors, pickaxes, and radar surveys of traditional archaeology. GenAI Archaeologists have reported findings both through luck by observing unexpected behaviour in publicly accessible models, and by exploiting the mathematical properties of models. In this blog, we survey five types of findings unearthed by GenAI Archaeologists and discuss the status of those findings.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/genai-archaeology/";
           
         },
       },{id: "post-from-trajectories-to-operators-a-unified-flow-map-perspective-on-generative-modeling",
@@ -334,28 +356,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/diffusion-inverse-problems/";
-          
-        },
-      },{id: "post-from-u-nets-to-dits-the-architectural-evolution-of-text-to-image-diffusion-models-2021-2025",
-        
-          title: "From U-Nets to DiTs: The Architectural Evolution of Text-to-Image Diffusion Models (2021–2025)",
-        
-        description: "A comprehensive analysis of how diffusion model architectures evolved from U-Net backbones to Diffusion Transformers, transforming text-to-image generation capabilities.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/diffusion-architecture-evolution/";
-          
-        },
-      },{id: "post-defining-and-quantifying-compositional-structure",
-        
-          title: "Defining and quantifying compositional structure",
-        
-        description: "Compositionality is thought to be crucial in human cognition and AI, but we lack a scientific understanding of what it is. What kind of data is compositionally structured? Can we mathematically quantify the amount and character of compositional structure? This blog post introduces a novel approach for doing so, building off of existing tools from algorithmic information theory that formalize notions of complexity and structure. The mathematical definition of compositionality that we&#39;ll come to is rigorous, precise, and general, and the hope is that it can inspire novel research directions in AI for uncovering compositional structure in natural data.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/compositionality/";
           
         },
       },{id: "post-chunktabpfn-training-free-long-context",

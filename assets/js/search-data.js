@@ -160,6 +160,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/speeding-up-rl/";
           
         },
+      },{id: "post-from-remote-sensing-foundation-models-to-world-models-a-pathway-in-the-perspective-of-generative-modeling",
+        
+          title: "From Remote Sensing Foundation Models to World Models: A pathway in the perspective...",
+        
+        description: "This blog post explores the pathway from remote sensing foundation models to world models through the lens of Generative Modeling, arguing that true understanding of the physical world comes from the ability to recreate it.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/remote-sensing-foundation-models-to-world-models/";
+          
+        },
       },{id: "post-pushing-meta-continual-learning-algorithms-to-the-limit",
         
           title: "Pushing Meta-Continual Learning Algorithms to the Limit",
@@ -389,17 +400,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/beyond-the-rerun/";
-          
-        },
-      },{id: "post-",
-        
-          title: "",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2025/2026-04-27-remote-sensing-foundation-models-to-world-models/";
           
         },
       },{id: "books-the-godfather",

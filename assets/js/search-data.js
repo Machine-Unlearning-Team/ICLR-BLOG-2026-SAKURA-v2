@@ -164,7 +164,7 @@ ninja.data = [{
         
           title: "From Remote Sensing Foundation Models to World Models: A pathway in the perspective...",
         
-        description: "This blog post explores the pathway from remote sensing foundation models to world models through the lens of Generative Modeling, arguing that true understanding of the physical world comes from the ability to recreate it.",
+        description: "We reframe remote sensing image-to-image translation as a world model inversion problem, arguing that native multi-sensor data is the best substrate for learning invertible environmental simulators.",
         section: "Posts",
         handler: () => {
           
@@ -182,15 +182,15 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/pushing-meta-cl-methods/";
           
         },
-      },{id: "post-language-as-a-window-into-the-mind-how-nlp-and-llms-advance-human-sciences",
+      },{id: "post-performative-prediction-made-practical",
         
-          title: "Language as a Window Into the Mind: How NLP and LLMs Advance Human...",
+          title: "Performative Prediction made practical",
         
-        description: "Can NLP predict heroin-addiction outcomes, uncover suicide risk, or simulate (and even influence) brain activity? Could LLMs one day contribute to research worthy of a Nobel Prize for advancing our understanding of human behavior? And what role do NLP scientists play in shaping that possibility? This post explores these questions, arguing that language technologies are not just tools that support scientific work (like literature search agents, writing tools, or coding assistants), but that by treating language as a window into the human mind, NLP and LLMs can actively help researchers uncover mechanisms of human behavior, cognition, and brain function.",
+        description: "Performative Prediction studies settings where deploying a model induces a distribution shift in the data with the aim of building robust and good-peforming models under these post-deployment effects. Most existing work in this area is theoretical and relies on strict assumptions to converge to those models, which makes the resulting techniques difficult to apply in practice and limits their accessibility to the broader Machine Learning (ML) community. In this blog post, we use visualization techniques 1) to provide an intuitive explanation of Performative Prediction and 2) to extract practical insights for studying convergence when theoretical assumptions do not hold.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/2026/blog/2026/nlp-for-human-sciences/";
+            window.location.href = "/2026/blog/2026/performative-prediction/";
           
         },
       },{id: "post-model-misspecification-in-simulation-based-inference-recent-advances-and-open-challenges",
@@ -202,17 +202,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/model-misspecification-in-sbi/";
-          
-        },
-      },{id: "post-do-language-models-really-learn-to-mislead-humans-via-rlhf",
-        
-          title: "Do Language Models Really Learn to Mislead Humans via RLHF?",
-        
-        description: "This post details an investigation of claims in Language Models Learn to Mislead Humans Via RLHF (ICLR 2025) that RLHF may unintentionally lead LLM agents to mislead humans (U-Sophistry). We found that the misleading behavior in the paper is the result of an unrealistic experimental setup and not of U-Sophistry, and can therefore be categorized as intentional misleading (I-Sophistry).",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/mislead-lm/";
           
         },
       },{id: "post-misalignments-and-rl-failure-modes-in-the-early-stage-of-superintelligence",
@@ -235,17 +224,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/measuregen/";
-          
-        },
-      },{id: "post-from-reinforce-to-dr-grpo-a-unified-perspective-on-llm-post-training",
-        
-          title: "From REINFORCE to Dr. GRPO: A Unified Perspective on LLM Post-Training",
-        
-        description: "Recently, many reinforcement learning (RL) algorithms have been applied to improve the post-training of large language models (LLMs). In this article, we aim to provide a unified perspective on the objectives of these RL algorithms, exploring how they relate to each other through the Policy Gradient Theorem — the fundamental theorem of policy gradient methods.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/llm-post-training/";
           
         },
       },{id: "post-are-dilemmas-and-conflicts-in-llm-alignment-solvable-a-view-from-priority-graph",
@@ -301,6 +279,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/flow-map-learning/";
+          
+        },
+      },{id: "post-understanding-and-fixing-bottlenecks-in-state-space-models-what-recency-and-over-smoothing-tell-us",
+        
+          title: "Understanding and Fixing Bottlenecks in State Space Models: What Recency and Over-Smoothing Tell...",
+        
+        description: "This work analyzes how recency bias and hidden-state over-smoothing emerge in modern State Space Models, revealing the bottlenecks that limit their ability to capture long-range dependencies.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/fixing-bottlenecks-in-state-space-models/";
           
         },
       },{id: "post-the-effect-of-feature-resolution-on-embedding-dimension",
@@ -369,15 +358,26 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/diffusion-inverse-problems/";
           
         },
-      },{id: "post-chunktabpfn-training-free-long-context",
+      },{id: "post-from-u-nets-to-dits-the-architectural-evolution-of-text-to-image-diffusion-models-2021-2025",
         
-          title: "ChunkTabPFN: Training-free Long Context",
+          title: "From U-Nets to DiTs: The Architectural Evolution of Text-to-Image Diffusion Models (2021–2025)",
         
-        description: "Tabular foundation models struggle with large datasets due to the quadratic attention. While methods like FlashAttention promise scalability, practical challenges persist in their application to tabular foundation models. Our work resolves these hurdles, enabling efficient attention, and reveals that contrary to the eariler reports, TabPFN&#39;s performance improves with larger contexts, highlighting its inherent robustness and minimal fine-tuning needs when scaling to complex, long datasets from the TabArena benchmark.",
+        description: "A comprehensive analysis of how diffusion model architectures evolved from U-Net backbones to Diffusion Transformers, transforming text-to-image generation capabilities.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/2026/blog/2026/chunked-tabpfn/";
+            window.location.href = "/2026/blog/2026/diffusion-architecture-evolution/";
+          
+        },
+      },{id: "post-content-promotion-as-a-strategic-game-how-to-design-agentic-publishers-for-the-evolving-search-ecosystem-in-the-genai-era",
+        
+          title: "Content Promotion as a Strategic Game: How to Design Agentic Publishers for the...",
+        
+        description: "With the rise of LLMs, publishers now operate in a dual world where traditional search and chat-like systems coexist. We propose a unified, game-theoretic view of this environment and highlight different tools, such as Multi-Agent Reinforcement Learning, that support the development of competitive content-optimization agents.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/content-promotion-agent-design/";
           
         },
       },{id: "post-budget-alignment-making-models-reason-in-the-user-39-s-language",

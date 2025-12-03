@@ -30,9 +30,9 @@ toc:
   <strong>Takeaway:</strong> World models can be understood as maps or functions in a state space. Given a mapping from input X to output Y, a true world model should be able to perform both forward prediction (X → Y) and inverse inference (Y → X) for any data pair that satisfies the mapping correlation.
 </div>
 
-Recent work, particularly a paper published in ICML 2025, provides a compelling definition of world models that frames them as **maps of functions** in a state space. In this framework, we have a state space where we map input X to output Y. The key insight is that for any given data pair that satisfies this mapping correlation, we should always be able to derive the result Y given the input X, or conversely, perform the inversion to derive the input X given the output Y.
+Recent work, particularly a comprehensive survey <d-cite key="dingUnderstandingWorldPredicting2025"></d-cite> and related research <d-cite key="vafaWhatHasFoundation2025,vafaEvaluatingWorldModel2024,zhangWhenDoNeural2025"></d-cite>, provides a compelling definition of world models that frames them as **maps of functions** in a state space. In this framework, we have a state space where we map input X to output Y. The key insight is that for any given data pair that satisfies this mapping correlation, we should always be able to derive the result Y given the input X, or conversely, perform the inversion to derive the input X given the output Y.
 
-This bidirectional capability—the ability to both predict forward and invert backward—is fundamental to what constitutes a true world model. It's not merely about learning a one-way transformation, but about understanding the underlying mapping structure well enough to traverse it in both directions.
+This bidirectional capability—the ability to both predict forward and invert backward—is fundamental to what constitutes a true world model <d-cite key="kong3D4DWorldModeling2025"></d-cite>. It's not merely about learning a one-way transformation, but about understanding the underlying mapping structure well enough to traverse it in both directions.
 
 ## Inversion Problems: From Language to Vision
 
@@ -40,9 +40,9 @@ This bidirectional capability—the ability to both predict forward and invert b
   <strong>Takeaway:</strong> Large language models have demonstrated remarkable capability in solving inversion problems in the semantic domain. However, this type of inversion problem remains underexplored in the vision field, presenting a significant research opportunity.
 </div>
 
-A classic example of inversion in the language domain illustrates this concept beautifully. If we know that "A is B's father," we can derive through inversion that "B is A's son." This demonstrates how language models can understand and manipulate semantic relationships bidirectionally.
+A classic example of inversion in the language domain illustrates this concept beautifully. If we know that "A is B's father," we can derive through inversion that "B is A's son." This demonstrates how language models can understand and manipulate semantic relationships bidirectionally <d-cite key="liHowDoLanguage2025,wangCanLanguageModels2024"></d-cite>.
 
-The existing literature has extensively explored large language models' capability to solve this kind of world model problem in the semantic domain. However, **this type of inversion problem is still underexplored in the vision field**. While language models excel at semantic inversion, the visual domain presents unique challenges and opportunities that have not been fully addressed.
+The existing literature has extensively explored large language models' capability to solve this kind of world model problem in the semantic domain <d-cite key="mancoridisPotemkinUnderstandingLarge2025"></d-cite>. However, **this type of inversion problem is still underexplored in the vision field**. While language models excel at semantic inversion, the visual domain presents unique challenges and opportunities that have not been fully addressed.
 
 ## Image-to-Image Translation: A Visual Inversion Problem
 
@@ -55,7 +55,7 @@ When we move from the language field to the vision field, one of the most simila
 - Age map ↔ Real image  
 - Segmentation map ↔ Real image
 
-This image-to-image translation paradigm has been well-studied for years and represents a kind of inversion problem. Notably, this is a **vision-only problem** that does not involve any semantic information—it's purely about learning the visual transformation between different representations of the same underlying scene or object.
+This image-to-image translation paradigm has been well-studied for years <d-cite key="isolaImageToImageTranslation2017,zhuUnpairedImageToImage2017,zhuUnpairedImagetoimageTranslation2020"></d-cite> and represents a kind of inversion problem. Recent advances have explored bidirectional translation using diffusion models <d-cite key="liBBDMImagetoimageTranslation2023,xueBiBBDMBidirectionalImage2025,zhouDenoisingDiffusionBridge2024,chungDirectDiffusionBridge2023,liuI2SBImagetoImageSchrodinger2023"></d-cite> and other generative approaches <d-cite key="leeMaskGANTowardsDiverse2020"></d-cite>. Notably, this is a **vision-only problem** that does not involve any semantic information—it's purely about learning the visual transformation between different representations of the same underlying scene or object.
 
 ## The Limitations of Man-Made Feature Maps
 
@@ -96,13 +96,14 @@ This natively gives different kinds of attributes that reflect the same object. 
 This is quite a hard task because different channels, different bands, and different spectra represent different information from the same object. Intuitively, there is no easy way we can yield the optimal translation results from one modality to another, which makes it an ideal testbed for visual inversion problems.
 
 **Remote sensing data compared to general computer vision data is much more suitable for the image-to-image translation task**, and the existing literature already has a great number of resources. Notable datasets include:
-- **OpenEarthMap**
-- **SAR-1N**
-- **EarthView**
-- **TerrFusion**
-- **FMoW (Functional Map of the World)**
+- **OpenEarthMap-SAR** <d-cite key="xiaOpenEarthMapSARBenchmark2025"></d-cite>
+- **SARLANG-1M** <d-cite key="weiSARLANG1MBenchmark2025"></d-cite>
+- **EarthView** <d-cite key="velazquezEarthViewLargeScale2025"></d-cite>
+- **TerraMesh** <d-cite key="blumenstielTerraMeshPlanetaryMosaic2025"></d-cite>
+- **SAR-TEXT** <d-cite key="heSARTEXTLargeScale2025"></d-cite>
+- **MMEarth** <d-cite key="nedungadiMMEarthExploringMultimodal2024"></d-cite>
 
-These papers provide geolocation-aligned remote sensing data across different modalities. The data sources come from Sentinel-1, Sentinel-2, high-resolution images from commercial satellites, and other feature maps like NDVI (Normalized Difference Vegetation Index), DEM (Digital Elevation Model), depth maps, and so on.
+These papers provide geolocation-aligned remote sensing data across different modalities. The data sources come from Sentinel-1, Sentinel-2, high-resolution images from commercial satellites, and other feature maps like NDVI (Normalized Difference Vegetation Index), DEM (Digital Elevation Model), depth maps, and so on. Recent work has also explored remote sensing-oriented world models <d-cite key="luRemoteSensingOriented2025"></d-cite> and foundation models for Earth observation <d-cite key="wangTowardsUnifiedCopernicus2025,tsengGalileoLearningGlobal2025,szwarcmanPrithviEO20Versatile2025,danishTerraFMScalableFoundation2025"></d-cite>.
 
 ## Exploring Visual Inversion with Foundation Models
 
@@ -118,10 +119,12 @@ Given the success we've seen in LLMs that are able to solve inversion problems a
 - **Target data**: SAR images
 
 We use existing vision foundation models, especially the **unified understanding and generation multimodal models** like:
-- **Belgium** (developed by Better Down seed team)
-- **OmniGen** and **OmniGen 2**
-- Commercial image editing models like **GPT Image 1**, **Lano Blana**, and **Lano Blana Pro**
-- Other image editing models like **Flux**, **Flux2** (developed by BlackForest Lab), **FluxContext**, **Queen Image Edit**, and other image editing models that are able to accept reference images as input to do sort of in-context generation
+- **OmniGen** <d-cite key="xiaoOmniGenUnifiedImage2025"></d-cite> for unified image generation
+- **UniReal** <d-cite key="chenUniRealUniversalImage2025"></d-cite> for universal image generation and editing via learning real-world dynamics
+- **ChronoEdit** <d-cite key="wuChronoEditTowardsTemporal2025"></d-cite> for temporal reasoning in image editing and world simulation
+- Other image editing models that leverage video generation for image manipulation <d-cite key="rotsteinPathwaysImageManifold2025"></d-cite> and models that are able to accept reference images as input to do in-context generation
+
+We also explore models based on **joint-embedding predictive architectures** <d-cite key="assranSelfsupervisedLearningImages2023,chenDenoisingJointEmbedding2025,moConnectingJointEmbedding2024"></d-cite> and video prediction models <d-cite key="assranVJEPA2SelfSupervised2025,bardesRevisitingFeaturePrediction2024"></d-cite> that have shown promise in understanding visual transformations. Additionally, we consider unified multimodal pretraining approaches <d-cite key="dengEmergingPropertiesUnified2025,radfordLearningTransferableVisual2021"></d-cite> that bridge understanding and generation capabilities.
 
 **What we are going to do** is formulate this inversion problem in a **zero-shot or one-shot in-context learning style**. For example:
 - We have source image (optical image A) and optical image B
@@ -133,4 +136,4 @@ We formulate this inversion problem **in-context**, and it is noted that in the 
 
 What we are going to explore is whether current vision foundation or multimodal foundation models have the capability to do this kind of **visual inverse problem**—can they understand the mapping between optical and SAR imagery well enough to perform the inverse transformation when given only visual examples, without explicit semantic or textual guidance?
 
-This represents a fundamental test of whether these models have developed true world model capabilities in the visual domain, or whether they are still limited to pattern matching and forward prediction without the ability to reason backward through learned transformations.
+This represents a fundamental test of whether these models have developed true world model capabilities in the visual domain <d-cite key="kangHowFarVideo2025,chiEmpoweringWorldModels2025,wuVideoWorldModels2025,chenLearningWorldModels2025"></d-cite>, or whether they are still limited to pattern matching and forward prediction without the ability to reason backward through learned transformations. Recent work on video world models <d-cite key="liuWorldWeaverGeneratingLongHorizon2025,gillmanForcePromptingVideo2025,caoDimensionReductionAttack2025"></d-cite> and 3D/4D world modeling <d-cite key="guiImageWorldGenerating2025,zhouLearning3DPersistent2025,trevithickSimVSSimulatingWorld2025"></d-cite> suggests that models are beginning to capture more sophisticated understanding of visual transformations, but the specific problem of visual inversion in the context of remote sensing modalities remains largely unexplored.

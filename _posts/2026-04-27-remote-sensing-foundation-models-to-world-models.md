@@ -1,7 +1,7 @@
 ---
 layout: distill
-title: "From Remote Sensing Foundation Models to World Models: A pathway in the perspective of Generative Modeling"
-description: "We reframe remote sensing image-to-image translation as a world model inversion problem, arguing that native multi-sensor data is the best substrate for learning invertible environmental simulators."
+title: "Exploring Visual Inversion Problems: From World Models to Remote Sensing Image-to-Image Translation"
+description: "This blog post explores the underexplored problem of visual inversion in the context of world models, arguing that remote sensing data provides optimal native image pairs for image-to-image translation tasks, and investigates whether current vision foundation models can solve these visual inversion problems through in-context learning."
 date: 2026-04-27
 future: true
 htmlwidgets: true
@@ -15,84 +15,125 @@ authors:
 bibliography: 2026-04-27-remote-sensing-foundation-models-to-world-models.bib
 
 toc:
-  - name: "Defining the Simulator: World Models"
-  - name: "Capturing the State: Remote Sensing Foundation Models"
-  - name: "The Synthesis Pathway: Bridging Observation and Simulation"
-  - name: "\"What I Cannot Create, I Do Not Understand\""
-  - name: "Beyond the Textual Shortcut: Why World Models Need More Than Language"
-  - name: "The Ultimate Compression: From Neural Networks to Physical Laws"
+  - name: "World Models as Maps: The Foundation of Inversion"
+  - name: "Inversion Problems: From Language to Vision"
+  - name: "Image-to-Image Translation: A Visual Inversion Problem"
+  - name: "The Limitations of Man-Made Feature Maps"
+  - name: "Remote Sensing: Native Image Pairs for Optimal Translation"
+  - name: "Exploring Visual Inversion with Foundation Models"
 ---
 
 
-## Defining the Simulator: World Models
+## World Models as Maps: The Foundation of Inversion
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> We treat a world model as an invertible map \(f: \mathcal{X} \rightarrow \mathcal{Y}\) that can be checked like an integer block: every forward translation must be paired with an equally consistent inverse.
+  <strong>Takeaway:</strong> World models can be understood as maps or functions in a state space. Given a mapping from input X to output Y, a true world model should be able to perform both forward prediction (X → Y) and inverse inference (Y → X) for any data pair that satisfies the mapping correlation.
 </div>
 
-The ICML 2025 survey on world models frames the simulator as an invertible mapping between latent state spaces, emphasizing that correct prediction requires both forward simulation and backward inference <d-cite key="dingUnderstandingWorldPredicting2025 vafaEvaluatingWorldModel2024 vafaWhatHasFoundation2025"></d-cite>. Given input \(x\) and output \(y=f(x)\), the model must also recover \(x=g(y)\) whenever the pair obeys the physical correlation. This bidirectional contract is what we call the “integer block check” of a world model, and it naturally surfaces every time we talk about an image inversion problem or an image-to-image translation pipeline.
+Recent work, particularly a comprehensive survey <d-cite key="dingUnderstandingWorldPredicting2025"></d-cite> and related research <d-cite key="vafaWhatHasFoundation2025,vafaEvaluatingWorldModel2024,zhangWhenDoNeural2025"></d-cite>, provides a compelling definition of world models that frames them as **maps of functions** in a state space. In this framework, we have a state space where we map input X to output Y. The key insight is that for any given data pair that satisfies this mapping correlation, we should always be able to derive the result Y given the input X, or conversely, perform the inversion to derive the input X given the output Y.
 
-The language community has internalized this definition. If we know “A is B’s father,” a large language model can infer the inverse relation “B is A’s son,” demonstrating that symbolic simulators can track state inversions over text <d-cite key="liHowDoLanguage2025 wangCanLanguageModels2024 mancoridisPotemkinUnderstanding2025"></d-cite>. Remote sensing image problems, however, remain mostly one-directional: we train a model to go from sketch to photo, edge map to RGB, or optical to SAR, but seldom demand the reversed prediction without explicit labels or textual scaffolding. This blog rewrites our approach so that remote sensing images, world model reasoning, and image-to-image translation all coincide under a single inversion requirement.
+This bidirectional capability—the ability to both predict forward and invert backward—is fundamental to what constitutes a true world model <d-cite key="kong3D4DWorldModeling2025"></d-cite>. It's not merely about learning a one-way transformation, but about understanding the underlying mapping structure well enough to traverse it in both directions.
 
-{% raw %}{% include figure.liquid path="assets/img/2026-04-27-remote-sensing-foundation-models-to-world-models/world_models_timeline.png" class="img-fluid" %}{% endraw %}
-<div class="caption">
-    The timeline of world models defined in <d-cite key="dingUnderstandingWorldPredicting2025"></d-cite>.
-</div>
-
-## Capturing the State: Remote Sensing Foundation Models
+## Inversion Problems: From Language to Vision
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> Remote sensing foundation models compress planetary state, but the richest supervision comes from native, co-registered sensors such as Sentinel-1/2, commercial VHR constellations, and hyperspectral payloads.
+  <strong>Takeaway:</strong> Large language models have demonstrated remarkable capability in solving inversion problems in the semantic domain. However, this type of inversion problem remains underexplored in the vision field, presenting a significant research opportunity.
 </div>
 
-Remote sensing foundation models (RSFMs) already excel at encoding massive, heterogeneous snapshots of the Earth—think Prithvi-EO-2.0, TerraFM, the Unified Copernicus FM, Galileo, and MMEarth learned from petabytes of Sentinel imagery <d-cite key="szwarcmanPrithviEO2025 danishTerraFM2025 wangUnifiedCopernicus2025 tsengGalileo2025 nedungadiMMEarth2024"></d-cite>. Yet most of these models learn a single modality at a time, forfeiting the best part of remote sensing imagery: the fact that the same geolocation and timestamp can be sensed by radar, multispectral, hyperspectral, or even video payloads that jointly describe the state of the world.
+A classic example of inversion in the language domain illustrates this concept beautifully. If we know that "A is B's father," we can derive through inversion that "B is A's son." This demonstrates how language models can understand and manipulate semantic relationships bidirectionally <d-cite key="liHowDoLanguage2025,wangCanLanguageModels2024"></d-cite>.
 
-When we align Sentinel-1 SAR backscatter, Sentinel-2 optical reflectance, high-resolution commercial RGB, and derived feature layers such as NDVI, DEM, or interferometric coherence, we obtain a dense lattice of measurements that is closer to the latent state space \(\mathcal{X}\) than any handcrafted sketch or edge map. The signal is high-bandwidth, continuous, and machine-native—no semantic shortcutting is required. Importantly, this remains a video-only (purely visual) problem: we operate entirely on sensor values rather than injecting textual hints.
+The existing literature has extensively explored large language models' capability to solve this kind of world model problem in the semantic domain <d-cite key="mancoridisPotemkinUnderstandingLarge2025"></d-cite>. However, **this type of inversion problem is still underexplored in the vision field**. While language models excel at semantic inversion, the visual domain presents unique challenges and opportunities that have not been fully addressed.
 
-## The Synthesis Pathway: Bridging Observation and Simulation
+## Image-to-Image Translation: A Visual Inversion Problem
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> Native multi-sensor pairs (optical ↔ SAR, SAR ↔ multispectral, hyperspectral ↔ elevation) are the ideal bridge between remote sensing observation and world model simulation.
+  <strong>Takeaway:</strong> Image-to-image translation represents a form of visual inversion problem. Tasks like translating from sketch images to real images (and vice versa) or from age maps to real images (and vice versa) have been well-studied for years, but they represent a vision-only problem that does not involve semantic information.
 </div>
 
-Classic image-to-image translation data sets rely on man-made derivatives—edge maps, segmentation masks, sketches—that reuse the exact same photons as the target image <d-cite key="isolaPix2Pix2017 zhuCycleGANICCV2017 zhuCycleGANArXiv2020"></d-cite>. These surrogates introduce little new information, making it difficult to evaluate “world understanding” when perceptual metrics (FID, LPIPS, DISTS) cannot distinguish stylistic but semantically wrong generations. Even sophisticated bridges such as BBDM, BiBBDM, I$^2$SB, or diffusion-bridge solvers enforce bidirectionality without introducing genuinely new sensing physics <d-cite key="liBBDMImageImage2023 xueBiBBDM2025 liuI2SB2023 chungDirectDiffusionBridge2023 zhouDenoisingDiffusionBridge2024"></d-cite>. We need data that injects complementary measurements instead of stylized copies.
+When we move from the language field to the vision field, one of the most similar cases is **image-to-image translation**. This encompasses tasks such as:
+- Sketch image ↔ Real image
+- Age map ↔ Real image  
+- Segmentation map ↔ Real image
 
-Geolocation-aligned remote sensing corpora such as OpenEarthMap-SAR, EarthView, TerraMesh, SARLANG-1M, SAR-TEXT, and TerraFM already provide multiple modalities per scene <d-cite key="xiaOpenEarthMapSAR2025 velazquezEarthView2025 blumenstielTerraMesh2025 weiSARLANG1M2025 heSARTEXT2025 danishTerraFM2025"></d-cite>. They capture Sentinel-1/Sentinel-2 stacks, airborne SAR, multispectral or hyperspectral cubes, and even ancillary layers like NDVI, DEM, or land-surface temperature. Because every modality views the same object with different physics, translating between them is a true inversion task: a successful model must infer hidden structure (e.g., moisture content) that is not explicitly present in the source channel.
+This image-to-image translation paradigm has been well-studied for years <d-cite key="isolaImageToImageTranslation2017,zhuUnpairedImageToImage2017,zhuUnpairedImagetoimageTranslation2020"></d-cite> and represents a kind of inversion problem. Recent advances have explored bidirectional translation using diffusion models <d-cite key="liBBDMImagetoimageTranslation2023,xueBiBBDMBidirectionalImage2025,zhouDenoisingDiffusionBridge2024,chungDirectDiffusionBridge2023,liuI2SBImagetoImageSchrodinger2023"></d-cite> and other generative approaches <d-cite key="leeMaskGANTowardsDiverse2020"></d-cite>. Notably, this is a **vision-only problem** that does not involve any semantic information—it's purely about learning the visual transformation between different representations of the same underlying scene or object.
 
-This pathway finally lets us move from “labeling the world” to “modeling the world.” We can propose evaluation protocols where the forward pass (optical → SAR) and the backward pass (SAR → optical) are both required, and where accuracy is computed via native geophysical metrics such as backscatter reconstruction error, band-wise spectral angular distance, or task-specific retrieval scores.
-
-## "What I Cannot Create, I Do Not Understand"
+## The Limitations of Man-Made Feature Maps
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> Generative modeling, framed as inversion, is our litmus test: if a model can recreate a missing modality from another, it has internalized the governing physics.
+  <strong>Takeaway:</strong> Existing image-to-image translation datasets generally use man-made intermediate representations (sketches, segmentation maps, age maps) that are algorithmically defined. These features are implicitly derived from the original image, making it hard to evaluate accuracy and control the quality of extracted features.
 </div>
 
-Following Feynman’s mantra, we design a zero-shot or one-shot in-context protocol that forces models to both observe and create <d-cite key="huhPlatonicRepresentationHypothesis2024 lecunPathTowardsAutonomous2025"></d-cite>. The prompt template works like this:
+However, one fundamental fallback of this problem definition is that **existing image-to-image translation datasets are generally man-made**. In these datasets, we typically have a real-world image either as the source image or the target image, and the corresponding translated image is something like:
+- Age maps
+- Segmentation maps
+- Sketch maps
 
-1. Provide a reference pair \((\text{Optical}_A, \text{SAR}_A)\) and optionally an additional \((\text{Optical}_B, \text{SAR}_B)\) pair.
-2. Supply only the target modality for a new scene (e.g., \(\text{SAR}_C\)) while reminding the model that “the first image is the input, the second image is the output” based on the reference pair.
-3. Ask the model to generate the missing modality (here, \(\text{Optical}_C\)) purely from visual cues. No textual description of the physics or transformation is given.
+These are generally **human-made or defined by some sort of algorithms**. The problem is that these features are actually implicitly derived from the original image, and the details, accuracy, and degree of these extracted features can vary significantly. It's hard to evaluate and control the quality of these intermediate representations.
 
-We apply the same protocol in reverse (optical → SAR) to complete the integer block check. Contemporary multimodal generators are surprisingly well-suited for this experiment: BELGiUM (BetterDownSeed), OmniGen, OmniGen 2, GPT-Image-1, LanoBlana and LanoBlana Pro, Flux, Flux.2 / FluxContext (BlackForestLab), GPT-Image-Edit, Queen Image Edit, and similar reference-guided editors can all ingest exemplars plus a query frame <d-cite key="xiaoOmniGen2025 chenUniReal2025 rotsteinPathwaysImageManifold2025 yangCogVideoX2025 chenLearningWorldModels2025 liuWorldWeaver2025 kong3D4DWorldModeling2025 guiImageWorld2025 trevithickSimVS2025 assranVJEPA22025 chenDenoisingJEPA2025 assranSelfSupervisedLearning2023 metaVJEPA2025"></d-cite>. Our study probes whether these vision foundation models already encode a latent “world model” that generalizes from one paired example to a new scene.
+Moreover, nowadays strong general models can achieve impressive image-to-image translation results, but **existing metrics are field-specific metrics** that capture the difference or visual appearance of the results. It's hard to distinguish between different models even though they have different metric performance—they may look a bit different or in different styles, but it's hard to say that one is definitively better than another in appearance.
 
-Because the supervision is native imagery, we can score results with physics-aware metrics (speckle-preserving SSIM, coherent change detection residuals, spectral angle mapper, NDVI consistency, DSM slope errors) rather than relying solely on human preference tests. If the generated image cannot drive downstream tasks—flood mapping, ship detection, or crop-type classification—we know the model has not truly understood the world it is trying to recreate.
+**The underlying problem is that these man-made feature maps as the source or target results are not optimal** because we do not introduce new data. The intermediate representations are essentially lossy compressions of the original image, and we're learning to translate between these compressed representations rather than between truly complementary views of the same scene.
 
-## Beyond the Textual Shortcut: Why World Models Need More Than Language
+## Remote Sensing: Native Image Pairs for Optimal Translation
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> Text is a low-bandwidth zip file of human experience; remote sensing Any2Any signals carry the raw physics that a world model must master.
+  <strong>Takeaway:</strong> Remote sensing data provides native image pairs from different sensor modalities (optical, SAR, multispectral, hyperspectral) that capture the same geolocation at the same time. These complementary modalities represent optimal image-to-image translation pairs that reflect real-world applications.
 </div>
 
-Large language models already solve inversion puzzles in the semantic domain, but they operate on abstractions that humans curated <d-cite key="radfordLearningTransferableVisual2021 vafaWhatHasFoundation2025 liHowDoLanguage2025 wangCanLanguageModels2024"></d-cite>. That shortcut is useful for reasoning, yet it obscures the underlying dynamics we care about when modeling the planet. Remote sensing image inversion has no textual crutch: the “prompt” is another image, and the supervision is whether we recover the correct electromagnetic response. This is a stricter and more informative test for world models.
+A novel solution to this problem lies in the **remote sensing domain**. For Earth observation, we have different sorts of sensors that capture different kinds of modalities of satellite images. Common sources include:
+- **Landsat 7/8** (optical imagery)
+- **Sentinel-1/2** (SAR and multispectral)
+- High-resolution commercial satellite imagery
 
-By grounding the simulator on Any2Any sensor data (optical, SAR, multispectral, hyperspectral, LiDAR, DEM, NDVI, even atmospheric soundings), we keep the learning signal in the original units of reality <d-cite key="luRemoteSensingWorldModel2025 wangUnifiedCopernicus2025 kong3D4DWorldModeling2025"></d-cite>. The model must therefore learn causal, geometric, and radiometric relationships instead of memorizing word co-occurrences. We see this as the missing stepping stone between today’s LLM-style “world models” and physically grounded ones.
+These satellite images have a great number of different spectra—far more than the traditional RGB channels in general computer vision domains. For a certain geolocation at a certain time, the captured images could have multiple instances:
+- **RGB optical images**
+- **SAR (Synthetic Aperture Radar) images**
+- **Multispectral images**
+- **Hyperspectral images**
 
-## The Ultimate Compression: From Neural Networks to Physical Laws
+This natively gives different kinds of attributes that reflect the same object. **This is what makes optimal image-to-image translation pairs**—they reflect real-world applications where different modalities are complementary to each other.
+
+This is quite a hard task because different channels, different bands, and different spectra represent different information from the same object. Intuitively, there is no easy way we can yield the optimal translation results from one modality to another, which makes it an ideal testbed for visual inversion problems.
+
+**Remote sensing data compared to general computer vision data is much more suitable for the image-to-image translation task**, and the existing literature already has a great number of resources. Notable datasets include:
+- **OpenEarthMap-SAR** <d-cite key="xiaOpenEarthMapSARBenchmark2025"></d-cite>
+- **SARLANG-1M** <d-cite key="weiSARLANG1MBenchmark2025"></d-cite>
+- **EarthView** <d-cite key="velazquezEarthViewLargeScale2025"></d-cite>
+- **TerraMesh** <d-cite key="blumenstielTerraMeshPlanetaryMosaic2025"></d-cite>
+- **SAR-TEXT** <d-cite key="heSARTEXTLargeScale2025"></d-cite>
+- **MMEarth** <d-cite key="nedungadiMMEarthExploringMultimodal2024"></d-cite>
+
+These papers provide geolocation-aligned remote sensing data across different modalities. The data sources come from Sentinel-1, Sentinel-2, high-resolution images from commercial satellites, and other feature maps like NDVI (Normalized Difference Vegetation Index), DEM (Digital Elevation Model), depth maps, and so on. Recent work has also explored remote sensing-oriented world models <d-cite key="luRemoteSensingOriented2025"></d-cite> and foundation models for Earth observation <d-cite key="wangTowardsUnifiedCopernicus2025,tsengGalileoLearningGlobal2025,szwarcmanPrithviEO20Versatile2025,danishTerraFMScalableFoundation2025"></d-cite>.
+
+## Exploring Visual Inversion with Foundation Models
 
 <div style="border: 2px solid #ff9800; background-color: #fff3e0; padding: 15px; border-radius: 5px; margin: 15px 0;">
-  <strong>Takeaway:</strong> Remote sensing inversion pushes models toward the efficient compression offered by physical laws, because success demands learning the reversible rules that govern Earth observation.
+  <strong>Takeaway:</strong> We formulate the visual inversion problem as a zero-shot or one-shot in-context learning task, where vision foundation models are given example pairs and asked to perform the inverse transformation without explicit specification of the transformation rules, allowing the model to explore the visual transformation through visual cues alone.
 </div>
 
-Foundation models approximate the world through billions of parameters; physics compresses it into a few equations <d-cite key="lecunPathTowardsAutonomous2025 zhangWhenDoNeural2025 vafaEvaluatingWorldModel2024 kong3D4DWorldModeling2025"></d-cite>. Remote sensing provides the empirical bridge between the two. When a model can both synthesize SAR from optical and reclaim optical from SAR—respecting incidence angles, polarization, sun glint, and terrain-induced foreshortening—it implicitly captures the governing equations without us hard-coding them. That is the path from brute-force memorization to elegant simulation.
+Given the success we've seen in LLMs that are able to solve inversion problems and have pathways to world models, but the underexplored nature of this problem in the vision field, we develop such an inversion problem using our remote sensing image-to-image translation dataset.
 
-Our next steps are clear: (1) curate geolocation-aligned, multi-modality benchmark splits (Sentinel-1/2, commercial VHR, hyperspectral, NDVI, DEM) with proper citations for OpenEarthMap-SAR, EarthView, TerraMesh, TerraFM, SARLANG-1M, and SAR-TEXT; (2) finalize evaluation metrics that measure both perceptual fidelity and geophysical correctness; (3) run the zero/one-shot inversion protocol across BELGiUM, OmniGen/2, GPT-Image-1, LanoBlana(Pro), Flux/Flux.2, FluxContext, GPT-Image-Edit, Queen Image Edit, and other multimodal foundation models; and (4) report whether any current system already behaves like a world model in this purely visual regime. If not, we have a concrete research agenda for bringing world models to the remote sensing image domain <d-cite key="xiaOpenEarthMapSAR2025 velazquezEarthView2025 blumenstielTerraMesh2025 danishTerraFM2025 weiSARLANG1M2025 heSARTEXT2025 xiaoOmniGen2025 chenUniReal2025"></d-cite>.
+**What we are going to explore is a task setup** where:
+- **Input**: We have an image-to-image translation dataset
+- **Source data**: Optimal optical images (like RGB images)
+- **Target data**: SAR images
+
+We use existing vision foundation models, especially the **unified understanding and generation multimodal models** like:
+- **OmniGen** <d-cite key="xiaoOmniGenUnifiedImage2025"></d-cite> for unified image generation
+- **UniReal** <d-cite key="chenUniRealUniversalImage2025"></d-cite> for universal image generation and editing via learning real-world dynamics
+- **ChronoEdit** <d-cite key="wuChronoEditTowardsTemporal2025"></d-cite> for temporal reasoning in image editing and world simulation
+- Other image editing models that leverage video generation for image manipulation <d-cite key="rotsteinPathwaysImageManifold2025"></d-cite> and models that are able to accept reference images as input to do in-context generation
+
+We also explore models based on **joint-embedding predictive architectures** <d-cite key="assranSelfsupervisedLearningImages2023,chenDenoisingJointEmbedding2025,moConnectingJointEmbedding2024"></d-cite> and video prediction models <d-cite key="assranVJEPA2SelfSupervised2025,bardesRevisitingFeaturePrediction2024"></d-cite> that have shown promise in understanding visual transformations. Additionally, we consider unified multimodal pretraining approaches <d-cite key="dengEmergingPropertiesUnified2025,radfordLearningTransferableVisual2021"></d-cite> that bridge understanding and generation capabilities.
+
+**What we are going to do** is formulate this inversion problem in a **zero-shot or one-shot in-context learning style**. For example:
+- We have source image (optical image A) and optical image B
+- We have corresponding target images (SAR image A and SAR image B)
+- We put optical image A and SAR image A along with SAR image B as the reference images for the model
+- We give a prompt like: "We denote the first image (optical image A) as the input image and the result image is SAR image A. Now we give you the result image (SAR image B), please generate the input image."
+
+We formulate this inversion problem **in-context**, and it is noted that in the prompt, we do not explicitly specify how the source and target images are related or what the transformation means. **We allow the model to explore the transformation between the given visual inputs through the visual cues themselves**.
+
+What we are going to explore is whether current vision foundation or multimodal foundation models have the capability to do this kind of **visual inverse problem**—can they understand the mapping between optical and SAR imagery well enough to perform the inverse transformation when given only visual examples, without explicit semantic or textual guidance?
+
+This represents a fundamental test of whether these models have developed true world model capabilities in the visual domain <d-cite key="kangHowFarVideo2025,chiEmpoweringWorldModels2025,wuVideoWorldModels2025,chenLearningWorldModels2025"></d-cite>, or whether they are still limited to pattern matching and forward prediction without the ability to reason backward through learned transformations. Recent work on video world models <d-cite key="liuWorldWeaverGeneratingLongHorizon2025,gillmanForcePromptingVideo2025,caoDimensionReductionAttack2025"></d-cite> and 3D/4D world modeling <d-cite key="guiImageWorldGenerating2025,zhouLearning3DPersistent2025,trevithickSimVSSimulatingWorld2025"></d-cite> suggests that models are beginning to capture more sophisticated understanding of visual transformations, but the specific problem of visual inversion in the context of remote sensing modalities remains largely unexplored.

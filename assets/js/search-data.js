@@ -83,15 +83,15 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/fans/";
           
         },
-      },{id: "post-wait-do-we-need-to-wait-revisiting-budget-forcing-for-sequential-test-time-scaling",
+      },{id: "post-text-to-image-compression-for-long-context-understanding",
         
-          title: "Wait, Do We Need to Wait? Revisiting Budget Forcing for Sequential Test-Time Scaling...",
+          title: "Text-to-Image compression for long context understanding",
         
-        description: "This blog revisits budget forcing, a sequential test-time scaling technique for reasoning models by controlling when it continues thinking versus when it must answer. We evaluate how well the method transfers across model types, including non-reasoning models, and whether alternative keywords work. We provide practical guidelines for using the technique.",
+        description: "Humans process text through visual perception much like viewing images or videos, but current AI systems typically use different encoders and processing pipelines when handling different modalities. In this blog post, we investigate recent works that attempt a human-inspired paradigm for processing texts that is converting textual contexts into images and subsequently using visual language models (VLMs) to process them. We start by explaining technical implementations of such conversions and their strengths. We then perform evaluation on long context understanding benchmarks that are more challenging than those used in prior works, with the objective to better analyze how these methods work or fail. Finally, we implement several improvements to existing approaches, including refined conversion techniques and context preprocessing strategies before conversion to images, observing their impacts on task performance to derive insights on future research directions.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/2026/blog/2026/wait-do-we-need-to-wait/";
+            window.location.href = "/2026/blog/2026/visual-long-context/";
           
         },
       },{id: "post-using-large-language-models-to-simulate-and-predict-human-decision-making",
@@ -127,6 +127,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/unlearning-or-untraining/";
           
         },
+      },{id: "post-unigramlm-an-attempt-at-writing-the-missing-manual",
+        
+          title: "UnigramLM - An Attempt at Writing the Missing Manual",
+        
+        description: "This post is my attempt to write down the UnigramLM tokenization algorithm cleanly and explicitly because, well, I still haven&#39;t found such a derivation and I think understanding the theory behind the method could help us make it better. I&#39;ll formalize the generative model around which the algorithm is based, derive the EM updates, explain why pruning is needed (and how it&#39;s done), and point out the spots where the practical implementation defined by the SentencePiece library diverges from the pretty mathematical models.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/unigramlm-manual/";
+          
+        },
       },{id: "post-tracing-the-principles-behind-modern-diffusion-models",
         
           title: "Tracing the Principles Behind Modern Diffusion Models",
@@ -136,17 +147,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/tracing-principles-behind-modern-diffusion-models/";
-          
-        },
-      },{id: "post-from-dense-monoliths-to-modular-minds-the-rise-of-symbolic-routing-in-llms",
-        
-          title: "From Dense Monoliths to Modular Minds: The Rise of Symbolic Routing in LLMs...",
-        
-        description: "The history of Artificial Intelligence (AI) has largely been defined by a dichotomy: the flexible, probabilistic learning of Connectionism versus the rigorous, compositional logic of Symbolism. However, the emergence of Large Language Models (LLMs) is fostering a synthesis of these paradigms through a fundamental architectural shift: the move from Dense Monoliths to Modular, Routed Systems. This shift is fractal. At the Macro level, LLMs function as central planners, using symbolic protocols to orchestrate external tools and specialized neural agents. Simultaneously, at the Micro level, the models themselves are evolving into sparse, modular structures (such as Mixture-of-Experts) governed by internal routing mechanisms. In this post, we explore this transition toward Symbolic Routing. We discuss how this paradigm enables us to build societies of neural agents, discover latent modularity within dense networks, thus enabling composable, verifiable, interpretable and continually learnable AI system. And we also discuss how to leverage these structures to synthesize training data and formally verify AI reasoning.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/symbolic-connect/";
           
         },
       },{id: "post-speeding-up-training-of-model-free-reinforcement-learning-a-comparative-evaluation-for-fast-and-accurate-learning",
@@ -160,11 +160,11 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/speeding-up-rl/";
           
         },
-      },{id: "post-from-remote-sensing-foundation-models-to-world-models-a-pathway-in-the-perspective-of-generative-modeling",
+      },{id: "post-exploring-visual-inversion-problems-from-world-models-to-remote-sensing-image-to-image-translation",
         
-          title: "From Remote Sensing Foundation Models to World Models: A pathway in the perspective...",
+          title: "Exploring Visual Inversion Problems: From World Models to Remote Sensing Image-to-Image Translation",
         
-        description: "We reframe remote sensing image-to-image translation as a world model inversion problem, arguing that native multi-sensor data is the best substrate for learning invertible environmental simulators.",
+        description: "This blog post explores the underexplored problem of visual inversion in the context of world models, arguing that remote sensing data provides optimal native image pairs for image-to-image translation tasks, and investigates whether current vision foundation models can solve these visual inversion problems through in-context learning.",
         section: "Posts",
         handler: () => {
           
@@ -191,17 +191,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/performative-prediction/";
-          
-        },
-      },{id: "post-model-misspecification-in-simulation-based-inference-recent-advances-and-open-challenges",
-        
-          title: "Model Misspecification in Simulation-Based Inference - Recent Advances and Open Challenges",
-        
-        description: "Model misspecification is a critical challenge in simulation-based inference (SBI), particularly in neural SBI methods that use simulated data to train flexible neural density estimators. These methods typically assume that simulators faithfully represent the true data-generating process, an assumption that is often violated in practice. Resulting discrepancies can make observed data effectively out-of-distribution relative to the simulations, leading to biased posterior distributions and misleading uncertainty quantification. This post reviews recent work on model misspecification in neural SBI, covering formal definitions, methods for detection and mitigation, and their underlying assumptions. It also discusses practical implications for SBI workflows and outlines open challenges for developing robust SBI methods that remain reliable in realistic, imperfectly specified applications.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/model-misspecification-in-sbi/";
           
         },
       },{id: "post-misalignments-and-rl-failure-modes-in-the-early-stage-of-superintelligence",
@@ -235,17 +224,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/llm-conflicts/";
-          
-        },
-      },{id: "post-justrl-scaling-a-1-5b-llm-with-a-simple-rl-recipe",
-        
-          title: "JustRL: Scaling a 1.5B LLM with a Simple RL Recipe",
-        
-        description: "Training small reasoning models with RL has become a race toward complexity, using multi-stage pipelines, dynamic schedules, and curriculum learning. We ask whether this complexity necessary? We show that JustRL, a simple recipe with fixed hyperparameters, achieves state-of-the-art performance on two different 1.5B base models (54.5% and 64.3% across 9 math benchmarks) while using 2× less compute than sophisticated approaches. The same hyperparameters transfer across both models without tuning, and training remains stable over thousands of steps without intervention. This suggests the field may be adding complexity to solve problems that disappear with a stable, scaled-up baseline.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/justrl/";
           
         },
       },{id: "post-introduction-to-stochastic-interpolants",
@@ -345,6 +323,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/distill-example/";
+          
+        },
+      },{id: "post-why-machines-can-39-t-make-up-their-mind-exploring-a-psychological-perspective-towards-llm-failures",
+        
+          title: "Why Machines Can&#39;t Make Up Their Mind? - Exploring a Psychological Perspective towards...",
+        
+        description: "We explore a unifying framework for LLM failures, including hallucinations, sycophancy, multi-hop reasoning breakdowns, and internal contradictions. We interpret these issues as energy minimization in areas with conflicting meaning. This perspective connects cognitive dissonance from psychology to the geometry of neural networks.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/dissonant-machine/";
           
         },
       },{id: "post-navigating-the-manifold-a-geometric-perspective-on-diffusion-based-inverse-problems",

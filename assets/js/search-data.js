@@ -83,6 +83,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/fans/";
           
         },
+      },{id: "post-visual-reversal-curse-from-general-domain-to-remote-sensing-images",
+        
+          title: "Visual Reversal Curse: From General Domain to Remote Sensing Images",
+        
+        description: "The &#39;Reversal Curse&#39; highlights a fundamental limitation in AI: models often fail to infer inverse relationships. This post investigates whether this curse extends to Vision Foundation Models and proposes remote sensing image translation as the optimal testbed for evaluating bidirectional visual generalization.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/visual-reversal-curse-from-general-domain-to-remote-sensing-images/";
+          
+        },
       },{id: "post-text-to-image-compression-for-long-context-understanding",
         
           title: "Text-to-Image compression for long context understanding",
@@ -149,6 +160,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/tracing-principles-behind-modern-diffusion-models/";
           
         },
+      },{id: "post-from-dense-monoliths-to-modular-minds-the-rise-of-symbolic-routing-in-llms",
+        
+          title: "From Dense Monoliths to Modular Minds: The Rise of Symbolic Routing in LLMs...",
+        
+        description: "The history of Artificial Intelligence (AI) has largely been defined by a dichotomy: the flexible, probabilistic learning of Connectionism versus the rigorous, compositional logic of Symbolism. However, the emergence of Large Language Models (LLMs) is fostering a synthesis of these paradigms through a fundamental architectural shift: the move from Dense Monoliths to Modular, Routed Systems. This shift is fractal. At the Macro level, LLMs function as central planners, using symbolic protocols to orchestrate external tools and specialized neural agents. Simultaneously, at the Micro level, the models themselves are evolving into sparse, modular structures (such as Mixture-of-Experts) governed by internal routing mechanisms. In this post, we explore this transition toward Symbolic Routing. We discuss how this paradigm enables us to build societies of neural agents, discover latent modularity within dense networks, thus enabling composable, verifiable, interpretable and continually learnable AI system. And we also discuss how to leverage these structures to synthesize training data and formally verify AI reasoning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/symbolic-connect/";
+          
+        },
       },{id: "post-speeding-up-training-of-model-free-reinforcement-learning-a-comparative-evaluation-for-fast-and-accurate-learning",
         
           title: "Speeding up Training of Model-Free Reinforcement Learning :A Comparative Evaluation for Fast and...",
@@ -158,17 +180,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/speeding-up-rl/";
-          
-        },
-      },{id: "post-exploring-visual-inversion-problems-from-world-models-to-remote-sensing-image-to-image-translation",
-        
-          title: "Exploring Visual Inversion Problems: From World Models to Remote Sensing Image-to-Image Translation",
-        
-        description: "This blog post explores the underexplored problem of visual inversion in the context of world models, arguing that remote sensing data provides optimal native image pairs for image-to-image translation tasks, and investigates whether current vision foundation models can solve these visual inversion problems through in-context learning.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/remote-sensing-foundation-models-to-world-models/";
           
         },
       },{id: "post-pushing-meta-continual-learning-algorithms-to-the-limit",

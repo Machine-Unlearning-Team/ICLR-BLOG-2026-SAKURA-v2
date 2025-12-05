@@ -125,5 +125,3 @@ Our protocol formulates the inversion problem as a **zero-shot or one-shot in-co
 </div>
 
 We hypothesize that even powerful generative models may struggle with this inversion if they have not explicitly learned the bidirectional physics of these sensors. This mirrors the LLM Reversal Curse and would suggest that current "world models" are more akin to **associative engines** than true simulators of physical reality.
-
-Recent progress in video <d-cite key="liuWorldWeaverGeneratingLongHorizon2025,gillmanForcePromptingVideo2025"></d-cite> and 3D modeling <d-cite key="guiImageWorldGenerating2025,zhouLearning3DPersistent2025"></d-cite> is promising, but the **Visual Reversal Curse** remains a critical litmus test. Can our models look at the world in one way and instinctively understand it from another? Remote sensing holds the answer.

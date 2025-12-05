@@ -94,9 +94,9 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/visual-reversal-curse-from-general-domain-to-remote-sensing-images/";
           
         },
-      },{id: "post-text-to-image-compression-for-long-context-understanding",
+      },{id: "post-text-as-image-a-visual-encoding-approach-for-long-context-understanding",
         
-          title: "Text-to-Image compression for long context understanding",
+          title: "Text-as-Image, A Visual Encoding Approach for Long-Context Understanding",
         
         description: "Humans process text through visual perception much like viewing images or videos, but current AI systems typically use different encoders and processing pipelines when handling different modalities. In this blog post, we investigate recent works that attempt a human-inspired paradigm for processing texts that is converting textual contexts into images and subsequently using visual language models (VLMs) to process them. We start by explaining technical implementations of such conversions and their strengths. We then perform evaluation on long context understanding benchmarks that are more challenging than those used in prior works, with the objective to better analyze how these methods work or fail. Finally, we implement several improvements to existing approaches, including refined conversion techniques and context preprocessing strategies before conversion to images, observing their impacts on task performance to derive insights on future research directions.",
         section: "Posts",
@@ -160,6 +160,17 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/tracing-principles-behind-modern-diffusion-models/";
           
         },
+      },{id: "post-from-dense-monoliths-to-modular-minds-the-rise-of-symbolic-routing-in-llms",
+        
+          title: "From Dense Monoliths to Modular Minds: The Rise of Symbolic Routing in LLMs...",
+        
+        description: "The history of Artificial Intelligence (AI) has largely been defined by a dichotomy: the flexible, probabilistic learning of Connectionism versus the rigorous, compositional logic of Symbolism. However, the emergence of Large Language Models (LLMs) is fostering a synthesis of these paradigms through a fundamental architectural shift: the move from Dense Monoliths to Modular, Routed Systems. This shift is fractal. At the Macro level, LLMs function as central planners, using symbolic protocols to orchestrate external tools and specialized neural agents. Simultaneously, at the Micro level, the models themselves are evolving into sparse, modular structures (such as Mixture-of-Experts) governed by internal routing mechanisms. In this post, we explore this transition toward Symbolic Routing. We discuss how this paradigm enables us to build societies of neural agents, discover latent modularity within dense networks, thus enabling composable, verifiable, interpretable and continually learnable AI system. And we also discuss how to leverage these structures to synthesize training data and formally verify AI reasoning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/symbolic-connect/";
+          
+        },
       },{id: "post-speeding-up-training-of-model-free-reinforcement-learning-a-comparative-evaluation-for-fast-and-accurate-learning",
         
           title: "Speeding up Training of Model-Free Reinforcement Learning :A Comparative Evaluation for Fast and...",
@@ -169,6 +180,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/speeding-up-rl/";
+          
+        },
+      },{id: "post-using-graph-neural-networks-in-reinforcement-learning-a-practical-guide",
+        
+          title: "Using Graph Neural Networks in Reinforcement Learning: A Practical Guide",
+        
+        description: "Graph Neural Networks (GNNs) have achieved excellent results for modelling relational data in many supervised learning domains. However, much fewer works have explored their potential in Reinforcement Learning (RL) despite the ubiquity of practical problems defined over graphs. In this blog post, we discuss how GNNs can be effectively integrated in Deep RL frameworks, covering crucial design decisions and practical implementation concerns. In doing so, we hope to facilitate unlocking new capabilities for RL agents to reason in graph-structured environments with dynamic action spaces and varying input sizes.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/rl-with-gnns/";
           
         },
       },{id: "post-pushing-meta-continual-learning-algorithms-to-the-limit",
@@ -213,17 +235,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/measuregen/";
-          
-        },
-      },{id: "post-are-dilemmas-and-conflicts-in-llm-alignment-solvable-a-view-from-priority-graph",
-        
-          title: "Are Dilemmas and Conflicts in LLM Alignment Solvable? A View from Priority Graph...",
-        
-        description: "As Large Language Models (LLMs) become more powerful and autonomous, they increasingly face conflicts and dilemmas in many scenarios. We first summarize and taxonomize these diverse conflicts. Then, we model the LLM&#39;s preferences to make different choices as a priority graph, where instructions and values are nodes, and the edges represent context-specific priorities determined by the model&#39;s output distribution. This graph reveals that a unified stable LLM alignment is very challenging, because the graph is not static in different contexts. Besides, it also reveals a potential vulnerability: priority hacking, where adversaries can craft deceptive contexts to manipulate the graph and bypass safety alignments. To counter this, we propose a runtime verification mechanism, enabling LLMs to query external sources to ground their context and resist manipulation. While this approach enhances robustness, we also acknowledge that many ethical and value dilemmas are philosophically irreducible, posing an open challenge for the future of AI alignment.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/llm-conflicts/";
           
         },
       },{id: "post-introduction-to-stochastic-interpolants",
@@ -303,17 +314,6 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/elastic-weight-consolidation-nuts-bolts/";
           
         },
-      },{id: "post-ai-fundamentals-valuing-ai-agents-amp-data-assets",
-        
-          title: "AI Fundamentals: Valuing AI Agents &amp; Data Assets",
-        
-        description: "Large Language Model (LLM) agents now read the world through managed-context pipelines, write to it via tool-calling APIs, and continuously re-wire themselves with fresh experience. Stakeholders therefore need a Generally Accepted Accounting Principles (GAAP) compatible method to price both (i) the agent&#39;s labour-like output and (ii) the data traces that fuel learning. We formalise a single unifying metric - agent Economic Value (AEV)- and demonstrate that these metrics are measurable today. We then extend the template to reinforcement-learning regimes in which grounded rewards equal cash flows. Lastly, we propose a financial settlement layer, which transforms the agent from a passive software user into an active economic participant.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/economic-agents/";
-          
-        },
       },{id: "post-sample-blog-post",
         
           title: "Sample Blog Post",
@@ -334,6 +334,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/dissonant-machine/";
+          
+        },
+      },{id: "post-discretisation-invariance",
+        
+          title: "Discretisation invariance",
+        
+        description: "We are going to talk about discretisation invariance - a recent innovation in scientific machine learning. Discretisation invariance is a requirement that ensures the architecture can process inputs of different resolutions. We will formally define this property, provide examples, generate datasets, train architectures, and discuss whether discretisation invariance is living up to its promise.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/discretisation-invariance/";
           
         },
       },{id: "post-navigating-the-manifold-a-geometric-perspective-on-diffusion-based-inverse-problems",
@@ -369,17 +380,6 @@ ninja.data = [{
             window.location.href = "/2026/blog/2026/content-promotion-agent-design/";
           
         },
-      },{id: "post-budget-alignment-making-models-reason-in-the-user-39-s-language",
-        
-          title: "Budget Alignment: Making Models Reason in the User&#39;s Language",
-        
-        description: "We explore a two step multilingual alignment recipe for large language models to keep reasoning and answers in the user language while preserving accuracy.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/2026/blog/2026/budget-alignment/";
-          
-        },
       },{id: "post-beyond-the-rerun-why-reproducibility-is-failing-science",
         
           title: "Beyond the Rerun: Why Reproducibility is Failing Science",
@@ -389,6 +389,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/2026/blog/2026/beyond-the-rerun/";
+          
+        },
+      },{id: "post-a-human-centric-framework-for-debating-the-ethics-of-ai-consciousness-under-uncertainty",
+        
+          title: "A Human-centric Framework for Debating the Ethics of AI Consciousness Under Uncertainty",
+        
+        description: "As AI systems become increasingly sophisticated, questions about machine consciousness and its ethical implications have moved from fringe speculation to mainstream academic debate. We address these limitations through a structured three-level framework grounded in philosophical uncertainty.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/2026/blog/2026/a-human-centric-framework-for-debating-the-ethics-of-ai-consciousness-under-uncertainty/";
           
         },
       },{id: "books-the-godfather",
